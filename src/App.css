@@ -1,0 +1,33 @@
+/*  ...    Header  .... */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body,#root{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: #0f172a
+}
+
+/*  ...   -------  Sidebar ------- .... */
+
+.Logo-container img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-left: 0px;
+}
+
+
+/*  ...  Sidebarhead  .... */
+/*  ... Sidebarnav   .... */
+/*  ... SidebarFoot   .... */
+
+
+/*  ...    Main Content  .... */
+/*  ...    Footer  .... */
+/*  ...    .... */
+/*  ...    .... */
+/*  ...    .... */
