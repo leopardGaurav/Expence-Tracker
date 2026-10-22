@@ -2,6 +2,9 @@ import React, { createContext, useState, useContext } from 'react';
 
 const AuthContext = createContext();
 
+// Live Render Backend URL
+const API_URL = 'https://expence-tracker-1-kfn1.onrender.com';
+
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(() => {
     const savedUser = localStorage.getItem('tracker_current_user');
@@ -25,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   const sendOtp = async (name, email, password) => {
     setAuthError('');
     try {
-      const response = await fetch('http://localhost:5000/api/send-otp', {
+      const response = await fetch(`${API_URL}/api/send-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
@@ -49,7 +52,7 @@ export const AuthProvider = ({ children }) => {
   const verifyAndRegister = async (name, email, password, otp) => {
     setAuthError('');
     try {
-      const response = await fetch('http://localhost:5000/api/verify-and-register', {
+      const response = await fetch(`${API_URL}/api/verify-and-register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password, otp })
@@ -74,7 +77,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     setAuthError('');
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -99,7 +102,7 @@ export const AuthProvider = ({ children }) => {
   const requestPasswordReset = async (email) => {
     setAuthError('');
     try {
-      const response = await fetch('http://localhost:5000/api/forgot-password', {
+      const response = await fetch(`${API_URL}/api/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
@@ -123,7 +126,7 @@ export const AuthProvider = ({ children }) => {
   const confirmPasswordReset = async (email, otp, newPassword) => {
     setAuthError('');
     try {
-      const response = await fetch('http://localhost:5000/api/reset-password', {
+      const response = await fetch(`${API_URL}/api/reset-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp, newPassword })
